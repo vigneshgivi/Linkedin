@@ -26,6 +26,10 @@ public class ExtractInformation extends Appbase {
 	@Test(priority = 1)
 	public void login() throws InterruptedException {
 		// Login logic if needed
+		driver.findElement(By.xpath("//input[@id=\"username\"]")).sendKeys("vigneshvasugv01@gmail.com");
+		driver.findElement(By.xpath("//input[@id=\"password\"]")).sendKeys("Linkedin@user@10");
+		driver.findElement(By.xpath("//button[@type=\"submit\"]")).click();
+		driver.navigate().to("https://www.linkedin.com/jobs/");
 		System.out.println("navigate to jobs done");
 	}
 
@@ -75,7 +79,7 @@ public class ExtractInformation extends Appbase {
 	@Test(priority = 3)
 	public void extractList() throws InterruptedException {
 		boolean hasNextPage = true;
-
+		keyValuePairs = new HashMap<>();
 		while (hasNextPage) {
 			Thread.sleep(10000);
 
@@ -83,11 +87,11 @@ public class ExtractInformation extends Appbase {
 					.findElements(By.xpath("(//li[contains(@class,'scaffold-layout__list-item')])"));
 
 			for (WebElement scrollallselect : scrollUpto) {
-				Thread.sleep(3000);
+				Thread.sleep(2000);
 				((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", scrollallselect);
 			}
 
-			Thread.sleep(10000);
+			Thread.sleep(5000);
 
 			List<WebElement> jobsTitleList = driver
 					.findElements(By.xpath("//div[@class='full-width artdeco-entity-lockup__title ember-view']/a"));
@@ -115,8 +119,6 @@ public class ExtractInformation extends Appbase {
 								.getAttribute("href");
 						System.out.println(name + " : " + URL);
 
-						keyValuePairs = new HashMap<>();
-
 						keyValuePairs.put(name, URL);
 					}
 				}
@@ -133,8 +135,8 @@ public class ExtractInformation extends Appbase {
 				System.out.println("Extraction Completed");
 			}
 
-			ExcelUtility.writeKeyValuePairsToExcel(keyValuePairs);
 		}
+		ExcelUtility.writeKeyValuePairsToExcel(keyValuePairs);
 	}
 }
 // fulent wait
