@@ -107,7 +107,7 @@ public class ExtractInformation extends Appbase {
             }
 
             try {
-                WebElement nextButton = driver.findElement(By.xpath("//button[contains(@aria-label, 'Next page')]"));
+                WebElement nextButton = driver.findElement(By.xpath("(//div[contains(@class,\"jobs-search-results-list__pagination\")]//li/button[@aria-current=\"true\"]/parent::li/following-sibling::li)[1]"));
                 nextButton.click(); // Click the "Next" button if it exists
                 Thread.sleep(5000); // Wait for the next page to load
             } catch (NoSuchElementException e) {
@@ -118,3 +118,4 @@ public class ExtractInformation extends Appbase {
         }
     }
 }
+// fulent wait
