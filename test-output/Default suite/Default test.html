@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>2/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Aug 06 00:20:46 IST 2024</td>
+<td>Started on:</td><td>Tue Aug 06 01:00:58 IST 2024</td>
 </tr>
-<tr><td>Total time:</td><td>134 seconds (134028 ms)</td>
+<tr><td>Total time:</td><td>221 seconds (221727 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,16 +76,17 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='testl.inkedIn.ExtractInformation.selectFilter()'><b>selectFilter</b><br>Test class: testl.inkedIn.ExtractInformation</td>
-<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//input[contains(@id,&apos;jobs-search-box-keyword-id&apos;)])&quot;}
+<td title='testl.inkedIn.ExtractInformation.extractList()'><b>extractList</b><br>Test class: testl.inkedIn.ExtractInformation</td>
+<td><div><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
   (Session info: chrome=127.0.6533.89)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
 Build info: version: &apos;4.23.0&apos;, revision: &apos;4df0a231af&apos;
 System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [c8b19b18c63bc8249769b6db56e85bb1, findElement {using=xpath, value=(//input[contains(@id,&apos;jobs-search-box-keyword-id&apos;)])}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.88 (a2d0cb026721..., userDataDir: C:\Users\ADMIN\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49727}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49727/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: c8b19b18c63bc8249769b6db56e85bb1
+Command: [5ccf58c311679470b8e2e660a96115a3, getElementAttribute {id=f.19F7DA8F562C5FD8875A74BBF05E6FD7.d.DB44460918C5E11BCA2B9BD8948FC566.e.584, name=aria-label}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.88 (a2d0cb026721..., userDataDir: C:\Users\ADMIN\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50346}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50346/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (5ccf58c311679470b8e2e660a96115a3)] -&gt; xpath: //div[@class=&apos;hirer-card__hirer-information&apos;]/a]
+Session ID: 5ccf58c311679470b8e2e660a96115a3
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
@@ -96,11 +97,9 @@ Session ID: c8b19b18c63bc8249769b6db56e85bb1
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:527)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:351)
-	at testl.inkedIn.ExtractInformation.selectFilter(ExtractInformation.java:35)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.getAttribute(RemoteWebElement.java:149)
+	at testl.inkedIn.ExtractInformation.extractList(ExtractInformation.java:130)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -127,16 +126,17 @@ Session ID: c8b19b18c63bc8249769b6db56e85bb1
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1822434669", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1822434669'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;(//input[contains(@id,&apos;jobs-search-box-keyword-id&apos;)])&quot;}
+</pre></div><a href='#' onClick='toggleBox("stack-trace1033880954", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1033880954'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
   (Session info: chrome=127.0.6533.89)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
 Build info: version: &apos;4.23.0&apos;, revision: &apos;4df0a231af&apos;
 System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [c8b19b18c63bc8249769b6db56e85bb1, findElement {using=xpath, value=(//input[contains(@id,&apos;jobs-search-box-keyword-id&apos;)])}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.88 (a2d0cb026721..., userDataDir: C:\Users\ADMIN\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49727}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49727/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: c8b19b18c63bc8249769b6db56e85bb1
+Command: [5ccf58c311679470b8e2e660a96115a3, getElementAttribute {id=f.19F7DA8F562C5FD8875A74BBF05E6FD7.d.DB44460918C5E11BCA2B9BD8948FC566.e.584, name=aria-label}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.88 (a2d0cb026721..., userDataDir: C:\Users\ADMIN\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50346}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50346/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (5ccf58c311679470b8e2e660a96115a3)] -&gt; xpath: //div[@class=&apos;hirer-card__hirer-information&apos;]/a]
+Session ID: 5ccf58c311679470b8e2e660a96115a3
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
@@ -147,11 +147,9 @@ Session ID: c8b19b18c63bc8249769b6db56e85bb1
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:527)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:351)
-	at testl.inkedIn.ExtractInformation.selectFilter(ExtractInformation.java:35)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.getAttribute(RemoteWebElement.java:149)
+	at testl.inkedIn.ExtractInformation.extractList(ExtractInformation.java:130)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -179,7 +177,7 @@ Session ID: c8b19b18c63bc8249769b6db56e85bb1
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </pre></div></td>
-<td>35</td>
+<td>120</td>
 <td>testl.inkedIn.ExtractInformation@3c46e67a</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
@@ -193,12 +191,12 @@ Session ID: c8b19b18c63bc8249769b6db56e85bb1
 <tr>
 <td title='testl.inkedIn.ExtractInformation.login()'><b>login</b><br>Test class: testl.inkedIn.ExtractInformation</td>
 <td></td>
-<td>0</td>
+<td>15</td>
 <td>testl.inkedIn.ExtractInformation@3c46e67a</td></tr>
 <tr>
-<td title='testl.inkedIn.ExtractInformation.extractList()'><b>extractList</b><br>Test class: testl.inkedIn.ExtractInformation</td>
+<td title='testl.inkedIn.ExtractInformation.selectFilter()'><b>selectFilter</b><br>Test class: testl.inkedIn.ExtractInformation</td>
 <td></td>
-<td>87</td>
+<td>79</td>
 <td>testl.inkedIn.ExtractInformation@3c46e67a</td></tr>
 </table><p>
 </body>

@@ -11,6 +11,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import utility.ExcelUtility;
@@ -23,14 +24,26 @@ public class ExtractInformation extends Appbase {
 		// Constructor
 	}
 
-	@Test(priority = 1)
+//	@DataProvider(name = "loginData")
+//	public Object[][] loginData() {
+//		return new Object[][] { { "vigneshvasugv01@gmail.com", "Linkedin@user@10" },
+//				{ "vigneshgivi27@gmail.com", "Linkedin@0708#" } };
+//	}
+	
+	String email = "vigneshgivi27@gmail.com";
+	String password ="Linkedin@0708#";
+	
+
+//	@Test(priority = 1, dataProvider = "loginData")
+	
+	@Test(priority =1)
 	public void login() throws InterruptedException {
-		// Login logic if needed
-		driver.findElement(By.xpath("//input[@id=\"username\"]")).sendKeys("vigneshvasugv01@gmail.com");
-		driver.findElement(By.xpath("//input[@id=\"password\"]")).sendKeys("Linkedin@user@10");
-		driver.findElement(By.xpath("//button[@type=\"submit\"]")).click();
+		// Login logic
+		driver.findElement(By.xpath("//input[@id='username']")).sendKeys(email);
+		driver.findElement(By.xpath("//input[@id='password']")).sendKeys(password);
+		driver.findElement(By.xpath("//button[@type='submit']")).click();
 		driver.navigate().to("https://www.linkedin.com/jobs/");
-		System.out.println("navigate to jobs done");
+
 	}
 
 	@Test(priority = 2)
@@ -139,4 +152,3 @@ public class ExtractInformation extends Appbase {
 		ExcelUtility.writeKeyValuePairsToExcel(keyValuePairs);
 	}
 }
-// fulent wait
