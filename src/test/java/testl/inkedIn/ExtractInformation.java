@@ -75,6 +75,7 @@ public class ExtractInformation extends Appbase {
 	@Test(priority = 3)
 	public void extractList() throws InterruptedException {
 		boolean hasNextPage = true;
+		keyValuePairs = new HashMap<>();
 
 		while (hasNextPage) {
 			Thread.sleep(10000);
@@ -113,9 +114,8 @@ public class ExtractInformation extends Appbase {
 								.getAttribute("aria-label");
 						String URL = driver.findElement(By.xpath("//div[@class='hirer-card__hirer-information']/a"))
 								.getAttribute("href");
-						System.out.println(name + " : " + URL);
 
-						keyValuePairs = new HashMap<>();
+						System.out.println(name + " : " + URL);
 
 						keyValuePairs.put(name, URL);
 					}
@@ -133,8 +133,8 @@ public class ExtractInformation extends Appbase {
 				System.out.println("Extraction Completed");
 			}
 
-			ExcelUtility.writeKeyValuePairsToExcel(keyValuePairs);
 		}
+		ExcelUtility.writeKeyValuePairsToExcel(keyValuePairs);
 	}
 }
 // fulent wait
