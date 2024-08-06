@@ -23,10 +23,25 @@ public class ExtractInformation extends Appbase {
 		// Constructor
 	}
 
+//	@DataProvider(name = "loginData")
+//	public Object[][] loginData() {
+//		return new Object[][] { { "vigneshvasugv01@gmail.com", "Linkedin@user@10" },
+//				{ "vigneshgivi27@gmail.com", "Linkedin@0708#" } };
+//	}
+
+	String email = "vigneshgivi27@gmail.com";
+	String password = "Linkedin@0708#";
+
+//	@Test(priority = 1, dataProvider = "loginData")
+
 	@Test(priority = 1)
 	public void login() throws InterruptedException {
-		// Login logic if needed
-		System.out.println("navigate to jobs done");
+		// Login logic
+		driver.findElement(By.xpath("//input[@id='username']")).sendKeys(email);
+		driver.findElement(By.xpath("//input[@id='password']")).sendKeys(password);
+		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		driver.navigate().to("https://www.linkedin.com/jobs/");
+
 	}
 
 	@Test(priority = 2)
@@ -84,11 +99,11 @@ public class ExtractInformation extends Appbase {
 					.findElements(By.xpath("(//li[contains(@class,'scaffold-layout__list-item')])"));
 
 			for (WebElement scrollallselect : scrollUpto) {
-				Thread.sleep(3000);
+				Thread.sleep(2000);
 				((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", scrollallselect);
 			}
 
-			Thread.sleep(10000);
+			Thread.sleep(5000);
 
 			List<WebElement> jobsTitleList = driver
 					.findElements(By.xpath("//div[@class='full-width artdeco-entity-lockup__title ember-view']/a"));
@@ -137,4 +152,3 @@ public class ExtractInformation extends Appbase {
 		ExcelUtility.writeKeyValuePairsToExcel(keyValuePairs);
 	}
 }
-// fulent wait

@@ -62,7 +62,7 @@ public class ExcelUtility {
 	private static String generateFileName() {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss");
 		LocalDateTime now = LocalDateTime.now();
-		String fileName = "key_value_pairs_" + dtf.format(now) + ".xlsx";
+		String fileName = "Linkedin_HR_Profile" + dtf.format(now) + ".xlsx";
 
 		// Get current project directory
 		String projectDir = System.getProperty("user.dir");

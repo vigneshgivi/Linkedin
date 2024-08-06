@@ -22,10 +22,7 @@ public class Appbase {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(25));
 		driver.get("https://www.linkedin.com/login");
-		driver.findElement(By.xpath("//input[@id=\"username\"]")).sendKeys("vigneshvasugv01@gmail.com");
-		driver.findElement(By.xpath("//input[@id=\"password\"]")).sendKeys("Linkedin@user@10");
-		driver.findElement(By.xpath("//button[@type=\"submit\"]")).click();
-		driver.navigate().to("https://www.linkedin.com/jobs/");
+		
 	}
 
 	@AfterClass

@@ -6,7 +6,7 @@
       <class name="testl.inkedIn.ExtractInformation">
         <methods>
           <include name="setup"/>
-          <include name="selectFilter"/>
+          <include name="extractList"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- testl.inkedIn.ExtractInformation -->
