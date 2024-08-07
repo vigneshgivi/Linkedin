@@ -1,49 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="2" failed="1" skipped="0">
+<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-08-06T01:00:58 IST" name="Default suite" finished-at="2024-08-06T01:04:39 IST" duration-ms="221727">
+  <suite started-at="2024-08-07T00:52:06 IST" name="Default suite" finished-at="2024-08-07T00:53:04 IST" duration-ms="57361">
     <groups>
     </groups>
-    <test started-at="2024-08-06T01:00:58 IST" name="Default test" finished-at="2024-08-06T01:04:39 IST" duration-ms="221727">
+    <test started-at="2024-08-07T00:52:06 IST" name="Default test" finished-at="2024-08-07T00:53:04 IST" duration-ms="57361">
       <class name="testl.inkedIn.ExtractInformation">
-        <test-method is-config="true" signature="setup()[pri:0, instance:testl.inkedIn.ExtractInformation@3c46e67a]" started-at="2024-08-06T01:00:58 IST" name="setup" finished-at="2024-08-06T01:01:04 IST" duration-ms="5966" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:testl.inkedIn.ExtractInformation@408d971b]" started-at="2024-08-07T00:52:06 IST" name="setUp" finished-at="2024-08-07T00:52:09 IST" duration-ms="2377" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="login()[pri:1, instance:testl.inkedIn.ExtractInformation@3c46e67a]" started-at="2024-08-06T01:01:04 IST" name="login" finished-at="2024-08-06T01:01:19 IST" duration-ms="15211" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- login -->
-        <test-method signature="selectFilter()[pri:2, instance:testl.inkedIn.ExtractInformation@3c46e67a]" started-at="2024-08-06T01:01:19 IST" name="selectFilter" finished-at="2024-08-06T01:02:38 IST" duration-ms="79037" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- selectFilter -->
-        <test-method signature="extractList()[pri:3, instance:testl.inkedIn.ExtractInformation@3c46e67a]" started-at="2024-08-06T01:02:38 IST" name="extractList" finished-at="2024-08-06T01:04:39 IST" duration-ms="120929" status="FAIL">
-          <exception class="org.openqa.selenium.StaleElementReferenceException">
+        </test-method> <!-- setUp -->
+        <test-method signature="linkedinLoginAndFilter()[pri:1, instance:testl.inkedIn.ExtractInformation@408d971b]" started-at="2024-08-07T00:52:09 IST" name="linkedinLoginAndFilter" finished-at="2024-08-07T00:52:25 IST" duration-ms="16099" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
-              <![CDATA[stale element reference: stale element not found in the current frame
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"(//input[contains(@id,'jobs-search-box-keyword-id')])"}
   (Session info: chrome=127.0.6533.89)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: '4.23.0', revision: '4df0a231af'
 System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.4'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [5ccf58c311679470b8e2e660a96115a3, getElementAttribute {id=f.19F7DA8F562C5FD8875A74BBF05E6FD7.d.DB44460918C5E11BCA2B9BD8948FC566.e.584, name=aria-label}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.88 (a2d0cb026721..., userDataDir: C:\Users\ADMIN\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50346}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50346/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (5ccf58c311679470b8e2e660a96115a3)] -> xpath: //div[@class='hirer-card__hirer-information']/a]
-Session ID: 5ccf58c311679470b8e2e660a96115a3]]>
+Command: [c93b6d7c149b23c13c5d4027518158aa, findElement {using=xpath, value=(//input[contains(@id,'jobs-search-box-keyword-id')])}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.99 (f31af5097d90..., userDataDir: C:\Users\ADMIN\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57500}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57500/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: c93b6d7c149b23c13c5d4027518158aa]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"(//input[contains(@id,'jobs-search-box-keyword-id')])"}
   (Session info: chrome=127.0.6533.89)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: '4.23.0', revision: '4df0a231af'
 System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.4'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [5ccf58c311679470b8e2e660a96115a3, getElementAttribute {id=f.19F7DA8F562C5FD8875A74BBF05E6FD7.d.DB44460918C5E11BCA2B9BD8948FC566.e.584, name=aria-label}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.88 (a2d0cb026721..., userDataDir: C:\Users\ADMIN\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50346}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50346/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (5ccf58c311679470b8e2e660a96115a3)] -> xpath: //div[@class='hirer-card__hirer-information']/a]
-Session ID: 5ccf58c311679470b8e2e660a96115a3
+Command: [c93b6d7c149b23c13c5d4027518158aa, findElement {using=xpath, value=(//input[contains(@id,'jobs-search-box-keyword-id')])}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.99 (f31af5097d90..., userDataDir: C:\Users\ADMIN\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57500}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57500/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: c93b6d7c149b23c13c5d4027518158aa
 at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
 at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
@@ -54,9 +44,11 @@ at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.ja
 at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
 at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
 at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:527)
-at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-at org.openqa.selenium.remote.RemoteWebElement.getAttribute(RemoteWebElement.java:149)
-at testl.inkedIn.ExtractInformation.extractList(ExtractInformation.java:130)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:351)
+at testl.inkedIn.ExtractInformation.linkedinLoginAndFilter(ExtractInformation.java:66)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -85,11 +77,15 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.StaleElementReferenceException -->
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- extractList -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:testl.inkedIn.ExtractInformation@3c46e67a]" started-at="2024-08-06T01:04:39 IST" name="tearDown" finished-at="2024-08-06T01:04:39 IST" duration-ms="418" status="PASS">
+        </test-method> <!-- linkedinLoginAndFilter -->
+        <test-method signature="naukriLoginAndUpdateResumeHeadline()[pri:2, instance:testl.inkedIn.ExtractInformation@408d971b]" started-at="2024-08-07T00:52:25 IST" name="naukriLoginAndUpdateResumeHeadline" finished-at="2024-08-07T00:53:03 IST" duration-ms="38404" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- naukriLoginAndUpdateResumeHeadline -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testl.inkedIn.ExtractInformation@408d971b]" started-at="2024-08-07T00:53:03 IST" name="tearDown" finished-at="2024-08-07T00:53:04 IST" duration-ms="395" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

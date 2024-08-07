@@ -5,8 +5,8 @@
     <classes>
       <class name="testl.inkedIn.ExtractInformation">
         <methods>
-          <include name="setup"/>
-          <include name="extractList"/>
+          <include name="setUp"/>
+          <include name="linkedinLoginAndFilter"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- testl.inkedIn.ExtractInformation -->
