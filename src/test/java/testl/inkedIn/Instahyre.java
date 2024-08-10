@@ -128,6 +128,7 @@ public class Instahyre extends Appbase {
 				morePages = false;
 			}
 		}
+		
 
 		if (!value.isEmpty()) {
 			ExcelUtility.writeKeyValuePairsToExcel(value, "InstahyreJobPostingInformation", "Instahyre_HR_Profile_");
