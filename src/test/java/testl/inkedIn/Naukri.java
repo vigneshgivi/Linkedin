@@ -17,14 +17,15 @@ public class Naukri extends Appbase {
 	private String naukriPassword = "Naukri@27";
 
 	public Naukri() {
-		// Constructor
-		wait = new WebDriverWait(driver, Duration.ofSeconds(60)); // Adjust timeout as needed
+
 	}
 
-	@Test(priority = 4)
+	@Test(priority = 1)
 	public void naukriLoginAndUpdateResumeHeadline() {
 
-		driver.get("https://www.naukri.com/");
+		getDriver().get("https://www.naukri.com/");
+
+		wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
 
 		WebElement loginButtonInitial = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[contains(text(),'Login')]")));
@@ -56,7 +57,7 @@ public class Naukri extends Appbase {
 			System.out.println("Cancel icon not found or not clickable.");
 		}
 
-		JavascriptExecutor js = (JavascriptExecutor) driver;
+		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		js.executeScript("window.scrollBy(0, -500);");
 
 		WebElement editResumeHeadlineIcon = wait

@@ -1,7 +1,6 @@
 package testl.inkedIn;
 
 import java.time.Duration;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -10,23 +9,31 @@ import org.testng.annotations.BeforeClass;
 
 public class Appbase {
 
-	static WebDriver driver;
+	// Use ThreadLocal for thread-safe WebDriver instances
+	private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+
+	// Provide a way to access the driver
+	public static WebDriver getDriver() {
+		return driver.get();
+	}
 
 	@BeforeClass
 	public void setup() {
+
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--incognito");
 
-		driver = new ChromeDriver(options);
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(25));
-		driver.get("https://www.linkedin.com/login");
-		
+		// Initialize WebDriver for the current thread
+		driver.set(new ChromeDriver(options));
+		getDriver().manage().window().maximize();
+		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(25));
 	}
 
 	@AfterClass
 	public void tearDown() {
-		driver.quit();
+		// Quit WebDriver for the current thread
+		getDriver().quit();
+		driver.remove(); // Clean up after the test
 	}
 
 }
