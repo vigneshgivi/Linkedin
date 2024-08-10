@@ -3,18 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testl.inkedIn.ExtractInformation">
+      <class name="testl.inkedIn.Instahyre">
         <methods>
           <include name="setup"/>
-<<<<<<< HEAD
-          <include name="extractList"/>
-          <include name="selectFilter"/>
-=======
->>>>>>> 270420a8e39044ae03eefa51b97895d29416dfce
-          <include name="tearDown"/>
           <include name="login"/>
+          <include name="tearDown"/>
+          <include name="processOpportunities"/>
         </methods>
-      </class> <!-- testl.inkedIn.ExtractInformation -->
+      </class> <!-- testl.inkedIn.Instahyre -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

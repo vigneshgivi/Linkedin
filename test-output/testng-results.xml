@@ -2,27 +2,23 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-08-10T20:19:40 IST" name="Default suite" finished-at="2024-08-10T20:20:38 IST" duration-ms="58300">
+  <suite started-at="2024-08-10T23:10:48 IST" name="Default suite" finished-at="2024-08-10T23:13:34 IST" duration-ms="166164">
     <groups>
     </groups>
-    <test started-at="2024-08-10T20:19:40 IST" name="Default test" finished-at="2024-08-10T20:20:38 IST" duration-ms="58300">
+    <test started-at="2024-08-10T23:10:48 IST" name="Default test" finished-at="2024-08-10T23:13:34 IST" duration-ms="166164">
       <class name="testl.inkedIn.Instahyre">
-        <test-method is-config="true" signature="setup()[pri:0, instance:testl.inkedIn.Instahyre@75d4a5c2]" started-at="2024-08-10T20:19:40 IST" name="setup" finished-at="2024-08-10T20:19:43 IST" duration-ms="3199" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:testl.inkedIn.Instahyre@2a693f59]" started-at="2024-08-10T23:10:48 IST" name="setup" finished-at="2024-08-10T23:10:52 IST" duration-ms="4041" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="login()[pri:1, instance:testl.inkedIn.Instahyre@75d4a5c2]" started-at="2024-08-10T20:19:43 IST" name="login" finished-at="2024-08-10T20:19:51 IST" duration-ms="7969" status="PASS">
+        <test-method signature="login()[pri:1, instance:testl.inkedIn.Instahyre@2a693f59]" started-at="2024-08-10T23:10:52 IST" name="login" finished-at="2024-08-10T23:10:58 IST" duration-ms="6586" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method signature="processOpportunities()[pri:2, instance:testl.inkedIn.Instahyre@75d4a5c2]" started-at="2024-08-10T20:19:51 IST" name="processOpportunities" finished-at="2024-08-10T20:20:38 IST" depends-on-methods="testl.inkedIn.Instahyre.login" duration-ms="46583" status="PASS">
+        <test-method signature="processOpportunities()[pri:2, instance:testl.inkedIn.Instahyre@2a693f59]" started-at="2024-08-10T23:10:58 IST" name="processOpportunities" finished-at="2024-08-10T23:13:34 IST" depends-on-methods="testl.inkedIn.Instahyre.login" duration-ms="155464" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- processOpportunities -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:testl.inkedIn.Instahyre@75d4a5c2]" started-at="2024-08-10T20:20:38 IST" name="tearDown" finished-at="2024-08-10T20:20:38 IST" duration-ms="399" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
       </class> <!-- testl.inkedIn.Instahyre -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

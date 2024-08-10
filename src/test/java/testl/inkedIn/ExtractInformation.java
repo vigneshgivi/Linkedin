@@ -1,7 +1,7 @@
 package testl.inkedIn;
 
 import java.time.Duration;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -105,7 +105,7 @@ public class ExtractInformation extends Appbase {
 	@Test(priority = 3)
 	public void extractList() {
 		boolean hasNextPage = true;
-		keyValuePairs = new HashMap<>();
+		keyValuePairs = new LinkedHashMap<>();
 
 		while (hasNextPage) {
 			List<WebElement> scrollUpto = getDriver()
@@ -153,7 +153,8 @@ public class ExtractInformation extends Appbase {
 			}
 		}
 		if (!keyValuePairs.isEmpty()) {
-			ExcelUtility.writeKeyValuePairsToExcel(keyValuePairs);
+			ExcelUtility.writeKeyValuePairsToExcel(keyValuePairs, "linkedJobpostingInformation",
+					"Linkedin_HR_Profile_");
 		} else {
 			System.out.println("No data to write.");
 		}

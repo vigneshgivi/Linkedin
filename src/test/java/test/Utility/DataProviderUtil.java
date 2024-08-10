@@ -10,7 +10,7 @@ import utility.ExcelDataProvider;
 public class DataProviderUtil {
 
 	private String currentDirectory = System.getProperty("user.dir");
-	private String linkedLoginExcel = "src" + File.separator + "test" + File.separator + "resources" + File.separator
+	private String linkedLoginExcel = "src" + File.separator + "main" + File.separator + "resources" + File.separator
 			+ "linkedExceldata" + File.separator + "linkedlogin-data.xlsx";
 
 	private ExcelDataProvider read = new ExcelDataProvider();

@@ -16,7 +16,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelUtility {
 
-	public static void writeKeyValuePairsToExcel(Map<String, String> keyValuePairs) {
+	public static void writeKeyValuePairsToExcel(Map<String, String> keyValuePairs, String directoryName,
+			String Filename) {
 		Workbook workbook = null;
 		FileOutputStream fos = null;
 		try {
@@ -28,7 +29,7 @@ public class ExcelUtility {
 			Cell headerCell1 = headerRow.createCell(0);
 			headerCell1.setCellValue("Name");
 			Cell headerCell2 = headerRow.createCell(1);
-			headerCell2.setCellValue("URL");
+			headerCell2.setCellValue("URL Or Company Name");
 
 			// Data rows
 			int rowNum = 1;
@@ -39,7 +40,7 @@ public class ExcelUtility {
 			}
 
 			// Generate dynamic file name with current date and time
-			String filePath = generateFileName();
+			String filePath = generateFileName(directoryName, Filename);
 
 			// Write the output to the file
 			fos = new FileOutputStream(filePath);
@@ -59,16 +60,16 @@ public class ExcelUtility {
 		}
 	}
 
-	private static String generateFileName() {
+	private static String generateFileName(String directoryName, String Filename) {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss");
 		LocalDateTime now = LocalDateTime.now();
-		String fileName = "Linkedin_HR_Profile" + dtf.format(now) + ".xlsx";
+		String fileName = Filename + dtf.format(now) + ".xlsx";
 
 		// Get current project directory
 		String projectDir = System.getProperty("user.dir");
 
 		// Construct the path for the resources directory
-		String resourcesPath = Paths.get(projectDir, "src", "test", "resources","linkedJobpostingInformation").toString();
+		String resourcesPath = Paths.get(projectDir, "src", "test", "resources", directoryName).toString();
 
 		// Ensure resources directory exists
 		File resourcesDir = new File(resourcesPath);

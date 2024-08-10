@@ -1,20 +1,25 @@
 package testl.inkedIn;
 
+import java.time.Duration;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import utility.ExcelUtility;
 import utility.Waits;
-
-import java.time.Duration;
-import java.util.List;
 
 public class Instahyre extends Appbase {
 	private WebDriverWait wait;
 	Waits normalWait;
+
+	private Map<String, String> value;
 
 	public Instahyre() {
 		normalWait = new Waits();
@@ -56,79 +61,78 @@ public class Instahyre extends Appbase {
 
 	@Test(priority = 2, dependsOnMethods = "login")
 	public void processOpportunities() {
-		try {
-			// Wait for the opportunities page to load
-			wait.until(ExpectedConditions.presenceOfElementLocated(
-					By.xpath("//div[@class='ng-scope']/button[contains(@class,'button-interested')]")));
-			System.out.println("Opportunities page loaded.");
 
-			boolean hasNextPage = true; // Assume there is a next page
+		boolean morePages = true;
+		value = new LinkedHashMap<>();
+		int counter = 1;
 
-			while (hasNextPage) {
-				// Find all "Interested" buttons on the current page
-				List<WebElement> interestedButtons = getDriver().findElements(
-						By.xpath("//div[@class='ng-scope']/button[contains(@class,'button-interested')]"));
+		while (morePages) {
 
-				if (interestedButtons.isEmpty()) {
-					System.out.println("No 'Interested' buttons found on the current page.");
-					break;
-				}
+			System.out.println("Processing a new page...");
 
-				System.out.println("Found " + interestedButtons.size() + " 'Interested' buttons.");
+			List<WebElement> opportunities = wait.until(
+					ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//button[@id=\"interested-btn\"]")));
 
-				for (WebElement interestedButton : interestedButtons) {
-					try {
-						// Wait until the "Interested" button is visible and clickable
-						WebElement clickableButton = wait
-								.until(ExpectedConditions.elementToBeClickable(interestedButton));
+			System.out.println("all Element found : " + opportunities.isEmpty());
 
-						// Click the "Interested" button
-						clickableButton.click();
-						System.out.println("Clicked 'Interested' button.");
+			for (WebElement opportunity : opportunities) {
 
-						// Wait for job details to load
-						wait.until(
-								ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='rec-info']")));
-						System.out.println("Job details loaded.");
-
-						// Read and print the job information
-						WebElement infoSpan = getDriver().findElement(By.xpath("//span[@class='rec-info']"));
-						System.out.println("Job Information: " + infoSpan.getText());
-
-						// Close the job details window
-						WebElement closeButton = getDriver().findElement(By.xpath("(//i[@class='fa fa-close'])[1]"));
-						closeButton.click();
-						System.out.println("Closed job details window.");
-
-						// Wait for the "Interested" button to be available again
-						wait.until(ExpectedConditions.presenceOfElementLocated(
-								By.xpath("//div[@class='ng-scope']/button[contains(@class,'button-interested')]")));
-					} catch (Exception e) {
-						System.out.println("Failed to process job details.");
-						e.printStackTrace();
-					}
-				}
-
-				// Attempt to go to the next page
 				try {
-					WebElement nextButton = getDriver().findElement(By.xpath(
-							"(//div[contains(@class,'pagination')]//li[contains(@class,'ng-binding ng-scope active')]/following-sibling::li)[1]"));
-					if (nextButton.isDisplayed()) {
-						nextButton.click(); // Click the "Next" button
-						System.out.println("Clicked 'Next' button.");
-						wait.until(ExpectedConditions.stalenessOf(nextButton)); // Wait for the next page to load
-					} else {
-						System.out.println("No more pages. Extraction is completed.");
-						hasNextPage = false; // Exit the loop if no more pages
-					}
-				} catch (Exception ex) {
-					System.out.println("No more pages or error in finding the 'Next' button. Extraction is completed.");
-					hasNextPage = false; // Exit the loop if the "Next" button is not found or an error occurs
+					((JavascriptExecutor) getDriver())
+							.executeScript("arguments[0].scrollIntoView(true); arguments[0].click();", opportunity);
+					normalWait.normalwait(2000);
+				} catch (Exception e) {
+					((JavascriptExecutor) getDriver()).executeScript("arguments[0].scrollIntoView(true);", opportunity);
+					((JavascriptExecutor) getDriver())
+							.executeScript("arguments[0].scrollIntoView(true); arguments[0].click();", opportunity);
+					normalWait.normalwait(2000);
+
 				}
+
+				String recruiterName = wait
+						.until(ExpectedConditions
+								.presenceOfElementLocated(By.xpath("//span[@class=\"rec-name ng-binding\"]")))
+						.getText();
+
+				String recruiterCompany = wait
+						.until(ExpectedConditions.presenceOfElementLocated(
+								By.xpath("//span[@class=\"designation ng-binding\"]/span[@class=\"ng-binding\"]")))
+						.getText();
+				normalWait.normalwait(2000);
+				getDriver().findElement(By.xpath("//div[@class=\"application-modal-close back-button-modal-close\"]"))
+						.click();
+
+				System.out.println(recruiterName + "  : " + recruiterCompany);
+
+				value.put(counter + "_" + recruiterName, recruiterCompany);
+				counter++;
 			}
-		} catch (Exception e) {
-			System.out.println("Failed to process opportunities.");
-			e.printStackTrace();
+
+			// Check if the "Next" button is available and click it if present
+			try {
+				WebElement nextButton = getDriver()
+						.findElement(By.xpath("(//div[@class=\"pagination ng-scope\"]/li)[last()]"));
+				((JavascriptExecutor) getDriver()).executeScript("arguments[0].scrollIntoView(true);", nextButton);
+
+				if (nextButton.isDisplayed()) {
+					nextButton.click();
+					morePages = true;
+					System.out.println("Next button clicked :" + morePages);
+					normalWait.normalwait(6000);
+
+				} else {
+					morePages = false; // No more pages
+					System.out.println("No \"Next\" button found or other issues : " + morePages);
+				}
+			} catch (Exception e) {
+				morePages = false;
+			}
+		}
+
+		if (!value.isEmpty()) {
+			ExcelUtility.writeKeyValuePairsToExcel(value, "InstahyreJobPostingInformation", "Instahyre_HR_Profile_");
+		} else {
+			System.out.println("No data to write.");
 		}
 	}
 }
