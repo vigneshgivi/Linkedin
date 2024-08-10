@@ -68,7 +68,7 @@ public class ExcelUtility {
 		String projectDir = System.getProperty("user.dir");
 
 		// Construct the path for the resources directory
-		String resourcesPath = Paths.get(projectDir, "src", "test", "resources").toString();
+		String resourcesPath = Paths.get(projectDir, "src", "test", "resources","linkedJobpostingInformation").toString();
 
 		// Ensure resources directory exists
 		File resourcesDir = new File(resourcesPath);

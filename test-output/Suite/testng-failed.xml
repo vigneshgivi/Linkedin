@@ -7,7 +7,6 @@
         <methods>
           <include name="setup"/>
           <include name="tearDown"/>
-          <include name="selectFilter"/>
           <include name="login" invocation-numbers="1"/>
         </methods>
       </class> <!-- testl.inkedIn.ExtractInformation -->
