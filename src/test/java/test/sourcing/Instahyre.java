@@ -1,4 +1,4 @@
-package testl.inkedIn;
+package test.sourcing;
 
 import java.time.Duration;
 import java.util.LinkedHashMap;
@@ -16,25 +16,28 @@ import utility.ExcelUtility;
 import utility.Waits;
 
 public class Instahyre extends Appbase {
+
 	private WebDriverWait wait;
-	Waits normalWait;
 
 	private Map<String, String> value;
 
 	public Instahyre() {
-		normalWait = new Waits();
+
 	}
+	
 
 	@Test(priority = 1)
 	public void login() {
 
 		// Initialize WebDriverWait
-		wait = new WebDriverWait(getDriver(), Duration.ofSeconds(40));
+		wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
 
 		// Navigate to the Instahyre login page
 		getDriver().get("https://www.instahyre.com/login/?next=/candidate/opportunities/%3Fmatching%3Dtrue");
 		System.out.println("Navigated to Instahyre login page.");
-		normalWait.normalwait(5000);
+
+		Waits.normalwait(3000);
+
 		// Wait for the page to load
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.id("email")));
 		System.out.println("Waited for page to load.");
@@ -57,9 +60,11 @@ public class Instahyre extends Appbase {
 		wait.until(ExpectedConditions.urlContains("/candidate/opportunities"));
 		System.out.println("Login process completed.");
 
+		Waits.normalwait(10000);
+
 	}
 
-	@Test(priority = 2, dependsOnMethods = "login")
+	@Test(priority = 2)
 	public void processOpportunities() {
 
 		boolean morePages = true;
@@ -67,6 +72,8 @@ public class Instahyre extends Appbase {
 		int counter = 1;
 
 		while (morePages) {
+
+			Waits.normalwait(1000);
 
 			System.out.println("Processing a new page...");
 
@@ -80,12 +87,11 @@ public class Instahyre extends Appbase {
 				try {
 					((JavascriptExecutor) getDriver())
 							.executeScript("arguments[0].scrollIntoView(true); arguments[0].click();", opportunity);
-					normalWait.normalwait(2000);
+
 				} catch (Exception e) {
 					((JavascriptExecutor) getDriver()).executeScript("arguments[0].scrollIntoView(true);", opportunity);
 					((JavascriptExecutor) getDriver())
 							.executeScript("arguments[0].scrollIntoView(true); arguments[0].click();", opportunity);
-					normalWait.normalwait(2000);
 
 				}
 
@@ -98,37 +104,31 @@ public class Instahyre extends Appbase {
 						.until(ExpectedConditions.presenceOfElementLocated(
 								By.xpath("//span[@class=\"designation ng-binding\"]/span[@class=\"ng-binding\"]")))
 						.getText();
-				normalWait.normalwait(2000);
+
+				Waits.normalwait(2000);
+
 				getDriver().findElement(By.xpath("//div[@class=\"application-modal-close back-button-modal-close\"]"))
 						.click();
 
 				System.out.println(recruiterName + "  : " + recruiterCompany);
 
 				value.put(counter + "_" + recruiterName, recruiterCompany);
+
 				counter++;
 			}
 
 			// Check if the "Next" button is available and click it if present
 			try {
-				WebElement nextButton = getDriver()
-						.findElement(By.xpath("(//div[@class=\"pagination ng-scope\"]/li)[last()]"));
+				WebElement nextButton = getDriver().findElement(By.xpath(
+						"(//div[@class=\"pagination ng-scope\"])/li[@class=\"ng-binding ng-scope active\"]/following-sibling::li[@class=\"ng-binding ng-scope\"]"));
 				((JavascriptExecutor) getDriver()).executeScript("arguments[0].scrollIntoView(true);", nextButton);
+				((JavascriptExecutor) getDriver())
+						.executeScript("arguments[0].scrollIntoView(true); arguments[0].click();", nextButton);
 
-				if (nextButton.isDisplayed()) {
-					nextButton.click();
-					morePages = true;
-					System.out.println("Next button clicked :" + morePages);
-					normalWait.normalwait(6000);
-
-				} else {
-					morePages = false; // No more pages
-					System.out.println("No \"Next\" button found or other issues : " + morePages);
-				}
 			} catch (Exception e) {
 				morePages = false;
 			}
 		}
-		
 
 		if (!value.isEmpty()) {
 			ExcelUtility.writeKeyValuePairsToExcel(value, "InstahyreJobPostingInformation", "Instahyre_HR_Profile_");

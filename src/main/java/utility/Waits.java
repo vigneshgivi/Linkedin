@@ -2,11 +2,11 @@ package utility;
 
 public class Waits {
 
-	public void normalwait(long waitTime) {
+	public static void normalwait(long waitTime) {
 		try {
 			Thread.sleep(waitTime);
+			System.out.println("normalWait : " + waitTime);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

@@ -3,14 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testl.inkedIn.Instahyre">
+      <class name="test.sourcing.Linked">
         <methods>
+          <include name="login" invocation-numbers="0"/>
           <include name="setup"/>
-          <include name="login"/>
           <include name="tearDown"/>
-          <include name="processOpportunities"/>
         </methods>
-      </class> <!-- testl.inkedIn.Instahyre -->
+      </class> <!-- test.sourcing.Linked -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

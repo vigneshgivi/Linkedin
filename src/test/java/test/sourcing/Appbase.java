@@ -1,4 +1,4 @@
-package testl.inkedIn;
+package test.sourcing;
 
 import java.time.Duration;
 import org.openqa.selenium.WebDriver;
@@ -26,7 +26,7 @@ public class Appbase {
 		// Initialize WebDriver for the current thread
 		driver.set(new ChromeDriver(options));
 		getDriver().manage().window().maximize();
-		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(25));
+		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 	}
 
 	@AfterClass

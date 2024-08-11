@@ -1,4 +1,4 @@
-package testl.inkedIn;
+package test.sourcing;
 
 import java.time.Duration;
 
@@ -19,6 +19,7 @@ public class Naukri extends Appbase {
 	public Naukri() {
 
 	}
+	
 
 	@Test(priority = 1)
 	public void naukriLoginAndUpdateResumeHeadline() {

@@ -3,13 +3,14 @@
 <suite parallel="classes" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" parallel="classes" name="Test(failed)">
     <classes>
-      <class name="testl.inkedIn.ExtractInformation">
+      <class name="test.sourcing.Instahyre">
         <methods>
+          <include name="login"/>
+          <include name="processOpportunities"/>
           <include name="setup"/>
           <include name="tearDown"/>
-          <include name="login" invocation-numbers="1"/>
         </methods>
-      </class> <!-- testl.inkedIn.ExtractInformation -->
+      </class> <!-- test.sourcing.Instahyre -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

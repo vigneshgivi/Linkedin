@@ -1,4 +1,4 @@
-package testl.inkedIn;
+package test.sourcing;
 
 import java.time.Duration;
 import java.util.LinkedHashMap;
@@ -18,15 +18,15 @@ import test.Utility.DataProviderUtil;
 import utility.ExcelUtility;
 import utility.Waits;
 
-public class ExtractInformation extends Appbase {
+public class LinkedIn extends Appbase {
 
 	private Map<String, String> keyValuePairs;
 	private WebDriverWait wait;
-	Waits normalWait;
 
-	public ExtractInformation() {
-		normalWait = new Waits();
+	public LinkedIn() {
+
 	}
+	
 
 //	String email = "vigneshvasugv01@gmail.com";
 //	String password = "Linkedin@user@10";
@@ -44,7 +44,7 @@ public class ExtractInformation extends Appbase {
 		getDriver().findElement(By.xpath("//input[@id='password']")).sendKeys(password);
 		getDriver().findElement(By.xpath("//button[@type='submit']")).click();
 
-		normalWait.normalwait(10000);
+		Waits.normalwait(60000);
 
 		getDriver().navigate().to("https://www.linkedin.com/jobs/");
 
@@ -67,37 +67,37 @@ public class ExtractInformation extends Appbase {
 				By.xpath("((//*[@class='reusable-search-filters-trigger-dropdown__container'])//button)[2]")));
 		actions.moveToElement(mouseHoverToShowResult).click().build().perform();
 
-		normalWait.normalwait(5000);
+		Waits.normalwait(6000);
 
 		WebElement mouseHoverToexperienceFilter = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='searchFilter_experience']")));
 		actions.moveToElement(mouseHoverToexperienceFilter).click().build().perform();
 
-		normalWait.normalwait(2000);
+		Waits.normalwait(6000);
 
 		WebElement mouseHoverToEntrylevel = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[text()='Entry level'])[1]")));
 		actions.moveToElement(mouseHoverToEntrylevel).click().build().perform();
 
-		normalWait.normalwait(2000);
+		Waits.normalwait(6000);
 
 		WebElement mouseHoverToAssociate = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[text()='Associate'])[1]")));
 		actions.moveToElement(mouseHoverToAssociate).click().build().perform();
 
-		normalWait.normalwait(2000);
+		Waits.normalwait(6000);
 
 		WebElement mouseHoverToexperienceFilterShowResult = wait.until(ExpectedConditions
 				.elementToBeClickable(By.xpath("(//button[contains(@aria-label,'Apply current filter to show')])[2]")));
 		actions.moveToElement(mouseHoverToexperienceFilterShowResult).click().build().perform();
 
-		normalWait.normalwait(2000);
+		Waits.normalwait(6000);
 
 		WebElement mouseHoverToEasyApply = wait
 				.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='Easy Apply']")));
 		actions.moveToElement(mouseHoverToEasyApply).click().build().perform();
 
-		normalWait.normalwait(2000);
+		Waits.normalwait(6000);
 
 		System.out.println("Select Filter Completed");
 	}
@@ -108,15 +108,20 @@ public class ExtractInformation extends Appbase {
 		keyValuePairs = new LinkedHashMap<>();
 
 		while (hasNextPage) {
+			
 			List<WebElement> scrollUpto = getDriver()
 					.findElements(By.xpath("(//li[contains(@class,'scaffold-layout__list-item')])"));
+			
 			for (WebElement scrollallselect : scrollUpto) {
 				((JavascriptExecutor) getDriver()).executeScript("arguments[0].scrollIntoView(true);", scrollallselect);
+				Waits.normalwait(6000);
 			}
 
 			List<WebElement> jobsTitleList = getDriver()
 					.findElements(By.xpath("//div[@class='full-width artdeco-entity-lockup__title ember-view']/a"));
+			
 			for (WebElement jobTitle : jobsTitleList) {
+				
 				((JavascriptExecutor) getDriver()).executeScript("arguments[0].scrollIntoView(true);", jobTitle);
 
 				String getTitle = jobTitle.getAttribute("aria-label");
